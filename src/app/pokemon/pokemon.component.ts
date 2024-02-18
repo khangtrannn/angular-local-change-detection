@@ -1,5 +1,5 @@
 import { AsyncPipe } from "@angular/common";
-import { Component, Input, NgZone, inject } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 @Component({
   selector: 'app-pokemon',
@@ -7,43 +7,17 @@ import { Component, Input, NgZone, inject } from "@angular/core";
   imports: [AsyncPipe],
   template: `
     <div class="card">
-      <span class="text-badge">{{title}}</span>
+      <span class="text-badge">{{header}}</span>
       <div class="image-wrapper">
         <img height="90px" [src]="getPokemon()" />
       </div>
     </div>
   `,
-  styles: `
-    .card {
-      width: 150px;
-      height: 150px;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-      background-color: #181825;
-      position: relative;
-    }
-
-    .text-badge {
-      font-size: 14px;
-      position: absolute;
-      color: #45475a;
-      font-style: italic;
-      top: 5px;
-      right: 10px;
-    }
-
-    .image-wrapper {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  `
+  styleUrls: ['./pokemon.component.scss']
 })
 export class PokemonComponent {
   private currentPokemonId: number | undefined;
-  @Input() title!: string;
+  @Input() header!: string;
 
   getPokemon(): string {
     const randomPokemonIndex = this.getRandomPokemonIndex();
@@ -57,7 +31,7 @@ export class PokemonComponent {
   }
 
   private getRandomPokemonIndex(): number {
-    return Math.floor(Math.random() * 99) + 1;
+    return Math.floor(Math.random() * 299) + 1;
   }
 }
 

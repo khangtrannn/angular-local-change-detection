@@ -1,0 +1,52 @@
+.card {
+  width: 150px;
+  height: 150px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background-color: #181825;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+
+  &:before {
+    content: "";
+    transform-origin: 100% 0%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-top: 1px solid white;
+    z-index: -1;
+    transform: translate(-50%, 0) rotate(90deg);
+  }
+}
+
+:host-context(.root) {
+  .card:before {
+    transform: none;
+    top: 53%;
+    width: 351px;
+    left: -101px;
+  }
+}
+
+.text-badge {
+  font-size: 14px;
+  position: absolute;
+  color: #45475a;
+  font-style: italic;
+  top: 5px;
+  right: 10px;
+}
+
+.image-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
