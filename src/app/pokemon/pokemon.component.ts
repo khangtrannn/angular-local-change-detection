@@ -1,12 +1,13 @@
 import { AsyncPipe } from "@angular/common";
 import { Component, Input } from "@angular/core";
+import { RippleDirective } from "./ripple.directive";
 
 @Component({
   selector: 'app-pokemon',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, RippleDirective],
   template: `
-    <div class="card">
+    <div appRipple class="card">
       <span class="text-badge">{{header}}</span>
       <div class="image-wrapper">
         <img height="90px" [src]="getPokemon()" />

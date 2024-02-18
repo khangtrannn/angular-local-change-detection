@@ -8,8 +8,6 @@
   position: relative;
   user-select: none;
   cursor: pointer;
-  transition-duration: 0.4s;
-  -webkit-transition-duration: 0.4s;
   /* Safari */
 
   &:before {
@@ -49,4 +47,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ripple-wrapper {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  overflow: hidden;
+}
+
+span.ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+
+  --bard-color-brand-text-gradient-stop-1: #4285f4;
+  --bard-color-brand-text-gradient-stop-1-rgb: 66, 133, 244;
+  --bard-color-brand-text-gradient-stop-2: #9b72cb;
+  --bard-color-brand-text-gradient-stop-2-rgb: 155, 114, 203;
+  --bard-color-brand-text-gradient-stop-3: #d96570;
+  --bard-color-brand-text-gradient-stop-3-rgb: 217, 101, 112;
+  --bard-color-surface: #131314;
+  background: linear-gradient(74deg,
+      var(--bard-color-brand-text-gradient-stop-1) 0,
+      var(--bard-color-brand-text-gradient-stop-1) 44%,
+      var(--bard-color-surface) 75%,
+      var(--bard-color-surface) 100%);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
