@@ -7,7 +7,12 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
   standalone: true,
   imports: [PokemonComponent],
   template: `
-    <app-pokemon header="Grand Child"></app-pokemon>
+    <div class="flex flex-col items-center mt-[5rem]">
+      <app-pokemon header="Grand Child"></app-pokemon>
+      <button class="mt-2 px-2 py-[2px] w-fit text-center border-none cursor-pointer text-[13px]" (click)="0">
+        Log something
+      </button>
+    </div>
   `,
 })
 export class GrandChildComponent { }
@@ -18,7 +23,7 @@ export class GrandChildComponent { }
   imports: [PokemonComponent, GrandChildComponent],
   template: `
     <app-pokemon header="Child One"></app-pokemon>
-    <app-grand-child class="block mt-[5rem]"></app-grand-child>
+    <app-grand-child></app-grand-child> 
   `,
 })
 export class ChildOneComponent { }
@@ -29,7 +34,6 @@ export class ChildOneComponent { }
   imports: [PokemonComponent, GrandChildComponent],
   template: `
     <app-pokemon header="Child Two"></app-pokemon>
-    <app-grand-child class="block mt-[5rem]"></app-grand-child>
   `,
 })
 export class ChildTwoComponent { }
