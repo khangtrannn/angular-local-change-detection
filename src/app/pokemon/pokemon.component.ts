@@ -7,7 +7,7 @@ import { RippleDirective } from "./ripple.directive";
   standalone: true,
   imports: [AsyncPipe, RippleDirective],
   template: `
-    <div class="card">
+    <div appRipple class="card cursor-pointer">
       <span class="text-badge">{{header}}</span>
       <div class="image-wrapper">
         <img height="90px" [src]="getPokemon()" />

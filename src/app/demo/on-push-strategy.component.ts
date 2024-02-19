@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PokemonComponent } from '../pokemon/pokemon.component';
 
@@ -9,9 +9,6 @@ import { PokemonComponent } from '../pokemon/pokemon.component';
   template: `
     <div class="flex flex-col items-center mt-[5rem]">
       <app-pokemon header="Grand Child"></app-pokemon>
-      <!-- <button class="mt-2 px-2 py-[2px] w-fit text-center border-none cursor-pointer text-[13px]" (click)="0">
-        Log something
-      </button> -->
     </div>
   `,
 })
@@ -33,8 +30,9 @@ export class ChildOneComponent { }
   standalone: true,
   imports: [PokemonComponent, GrandChildComponent],
   template: `
-    <app-pokemon header="Child Two"></app-pokemon>
+      <app-pokemon class="on-push" header="Child Two"></app-pokemon>
   `,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildTwoComponent { }
 
@@ -53,4 +51,4 @@ export class ChildTwoComponent { }
     <div>
   `,
 })
-export class DefaultStrategyComponent { }
+export class OnPushStrategyComponent { }
