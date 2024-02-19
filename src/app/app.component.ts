@@ -7,9 +7,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   imports: [RouterOutlet, RouterLink],
   template: `
     <router-outlet></router-outlet>
-    <div class="flex gap-5 absolute bottom-[40px] right-[40px] text-white">
-      <a routerLink="/">Default Strategy</a>
-      <a routerLink="/on-push-strategy-demo">OnPush Strategy 1st</a>
+    <div class="flex flex-col gap-5 absolute top-[40px] right-[40px] text-white">
+      <a routerLink="/">1. Default Strategy</a>
+      <a routerLink="/on-push-strategy-demo">2. OnPush Strategy 1st</a>
+      <a routerLink="/all-on-push-strategy-demo">3. OnPush Strategy 2nd</a>
     </div>
   `,
 })
